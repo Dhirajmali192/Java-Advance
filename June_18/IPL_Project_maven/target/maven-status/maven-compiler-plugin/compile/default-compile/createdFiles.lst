@@ -1,0 +1,4 @@
+com\tka\dao\IPLDao.class
+com\tka\service\IPLService.class
+com\tka\controller\IPLController.class
+com\tka\entity\Player.class
