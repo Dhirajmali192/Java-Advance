@@ -129,6 +129,5 @@ public class ProductController {
 
         } while (choice != 7);
 
-        sc.close();
     }
 }
