@@ -16,7 +16,6 @@ public class ProductController {
         int choice;
 
         do {
-
             System.out.println("\n===== PRODUCT INVENTORY SYSTEM =====");
             System.out.println("1. Add Product");
             System.out.println("2. Display Products");
@@ -30,64 +29,44 @@ public class ProductController {
             choice = sc.nextInt();
 
             switch (choice) {
-
                 case 1:
-
                     System.out.print("Enter ID: ");
                     int id = sc.nextInt();
-
-                    sc.nextLine();
-
                     System.out.print("Enter Name: ");
-                    String name = sc.nextLine();
-
+                    String name = sc.next();
                     System.out.print("Enter Price: ");
                     double price = sc.nextDouble();
-
                     System.out.print("Enter Quantity: ");
                     int qty = sc.nextInt();
-
-                    sc.nextLine();
-
                     System.out.print("Enter Category: ");
-                    String category = sc.nextLine();
-
+                    String category = sc.next();
                     Product product = new Product(id, name, price, qty, category);
 
                     service.addProduct(product);
 
                     System.out.println("Product Added Successfully!");
-
                     break;
 
                 case 2:
-
                     for (Product p : service.displayProducts()) {
                         System.out.println("--------------------");
                         System.out.println(p);
                     }
-
                     break;
 
                 case 3:
-
                     System.out.print("Enter Product ID: ");
                     id = sc.nextInt();
-
                     Product p = service.searchProduct(id);
-
                     if (p != null)
                         System.out.println(p);
                     else
                         System.out.println("Product Not Found");
-
                     break;
 
                 case 4:
-
                     System.out.print("Enter Product ID: ");
                     id = sc.nextInt();
-
                     System.out.print("Enter New Quantity: ");
                     qty = sc.nextInt();
 
@@ -95,36 +74,27 @@ public class ProductController {
                         System.out.println("Quantity Updated Successfully.");
                     else
                         System.out.println("Product Not Found.");
-
                     break;
 
                 case 5:
-
                     Product max = service.mostExpensiveProduct();
-
                     if (max != null)
                         System.out.println(max);
                     else
                         System.out.println("Inventory is Empty.");
-
                     break;
 
                 case 6:
-
                     System.out.println("Total Inventory Value = " +
                             service.totalInventoryValue());
-
                     break;
 
                 case 7:
-
                     System.out.println("Thank You!");
                     break;
 
                 default:
-
                     System.out.println("Invalid Choice.");
-
             }
 
         } while (choice != 7);
